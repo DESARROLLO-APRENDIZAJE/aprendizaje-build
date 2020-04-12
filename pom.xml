@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mx.com.aprendizaje</groupId>
+  <artifactId>aprendizaje-build</artifactId>
+  <version>${revision}</version>
+  <packaging>pom</packaging>
+
+  <name>aprendizajebuild</name>
+
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.4.0.RELEASE</version>
+    <relativePath /> <!-- lookup parent from repository -->
+  </parent>
+
+<properties>
+    <framework.version>1.0.0</framework.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.7</java.version>
+    <revision>v100r1</revision>
+    <teclo-reporte-jar>1.0.0</teclo-reporte-jar>
+    
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <packagingExcludes>
+            WEB-INF/lib/logback-*.jar,
+            WEB-INF/lib/slf4j-log4j12*.jar,
+          </packagingExcludes>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+          <outputDirectory>/Users/jorgeluis/Desktop/workspace-sts/WARS</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <modules>
+    <module>aprendizaje-api</module>
+    <module>aprendizaje-app</module>
+  </modules>
+  
+
+</project>
